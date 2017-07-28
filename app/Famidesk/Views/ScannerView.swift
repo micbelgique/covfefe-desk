@@ -9,19 +9,28 @@
 import UIKit
 import AVFoundation
 
-class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    @IBOutlet weak var messageLabel:UILabel!
+class ScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     
+    // Delegate
+    weak var qrCodeFoundDelegate: QRCodeFoundDelegate?
+    
     // Added to support different barcodes
     let supportedBarCodes = [AVMetadataObjectTypeQRCode]
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func awakeFromNib() {
+        initialize()
+    }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    func initialize() {
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video
         // as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -48,8 +57,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            view.layer.addSublayer(videoPreviewLayer!)
+            videoPreviewLayer?.frame = self.layer.bounds
+            self.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture
             captureSession?.startRunning()
@@ -60,8 +69,8 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             if let qrCodeFrameView = qrCodeFrameView {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
+                self.addSubview(qrCodeFrameView)
+                self.bringSubview(toFront: qrCodeFrameView)
             }
             
         } catch {
@@ -70,18 +79,17 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             return
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func stopScanning() {
+        captureSession?.stopRunning()
     }
-
+    
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-            NSLog("-> QR code is detected")
+            NSLog("-> No QR code is detected")
             return
         }
         
@@ -98,7 +106,7 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                NSLog("QR Code detected content: \(metadataObj.stringValue)")
+                qrCodeFoundDelegate?.grannyScanned(grannyId: metadataObj.stringValue)
             }
         }
     }
