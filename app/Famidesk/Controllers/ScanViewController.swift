@@ -17,6 +17,17 @@ class ScanViewController: UIViewController {
         super.viewDidLoad()
         scannerView.qrCodeFoundDelegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        scannerView.startScanning()
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,6 +39,10 @@ class ScanViewController: UIViewController {
         if let yourVC = segue.destination as? GrannyProfileViewController, let grannyId = sender as? String {
             yourVC.grannyId = grannyId
         }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
 }
 

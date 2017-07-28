@@ -82,6 +82,11 @@ class ScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     
     func stopScanning() {
         captureSession?.stopRunning()
+        qrCodeFrameView?.frame = CGRect.zero
+    }
+    
+    func startScanning() {
+        captureSession?.startRunning()
     }
     
     
