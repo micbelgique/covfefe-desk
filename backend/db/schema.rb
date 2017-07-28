@@ -12,26 +12,26 @@
 
 ActiveRecord::Schema.define(version: 20170728140020) do
 
-  create_table "action_type_agent_links", force: :cascade do |t|
-    t.integer "action_type_id"
-    t.integer "agent_id"
+  create_table "action_type_agent_links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "action_type_id"
+    t.bigint "agent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["action_type_id"], name: "index_action_type_agent_links_on_action_type_id"
     t.index ["agent_id"], name: "index_action_type_agent_links_on_agent_id"
   end
 
-  create_table "action_types", force: :cascade do |t|
+  create_table "action_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "actions", force: :cascade do |t|
-    t.integer "type_id"
+  create_table "actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "type_id"
     t.date "date"
-    t.integer "agent_id"
-    t.integer "patient_id"
+    t.bigint "agent_id"
+    t.bigint "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["agent_id"], name: "index_actions_on_agent_id"
@@ -39,22 +39,22 @@ ActiveRecord::Schema.define(version: 20170728140020) do
     t.index ["type_id"], name: "index_actions_on_type_id"
   end
 
-  create_table "agent_types", force: :cascade do |t|
+  create_table "agent_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "agents", force: :cascade do |t|
+  create_table "agents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "type_id"
+    t.bigint "type_id"
     t.string "picture_uuid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_id"], name: "index_agents_on_type_id"
   end
 
-  create_table "patients", force: :cascade do |t|
+  create_table "patients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.date "birth_date"
     t.text "code"
