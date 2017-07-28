@@ -1,5 +1,7 @@
 class Agent < ApplicationRecord
 
+  mount_uploader :picture, PictureUploader
+
   belongs_to :type, class_name: 'AgentType'
 
   has_many :action_type_agent_links, dependent: :destroy

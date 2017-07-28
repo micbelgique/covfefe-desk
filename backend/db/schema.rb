@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170728140020) do
   create_table "agents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.bigint "type_id"
-    t.string "picture_uuid"
+    t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["type_id"], name: "index_agents_on_type_id"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170728140020) do
     t.string "name"
     t.date "birth_date"
     t.text "code"
-    t.string "picture_uuid"
+    t.string "picture"
     t.decimal "latitude", precision: 15, scale: 10, default: "0.0"
     t.decimal "longitude", precision: 15, scale: 10, default: "0.0"
     t.text "address"
