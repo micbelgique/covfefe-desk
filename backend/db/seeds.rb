@@ -54,3 +54,17 @@ josiane    = SeedHelpers.create_agent('',                                     "J
 alberte  = SeedHelpers.create_patient('Alberte',  'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
 gilberte = SeedHelpers.create_patient('Gilberte', 'yu', "Rue Royale 42, 7500 Tournai, Belgium")
 
+[alberte, gilberte].each do |patient|
+  datetime = Time.now
+
+  (rand(10) + 2).times do
+    action_type = ActionType.all.sample
+    datetime   -= rand(72).hours
+
+    patient.actions.create!(
+      datetime: datetime,
+      type:     action_type,
+      agent:    action_type.agents.sample
+    )
+  end
+end

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170728140020) do
 
   create_table "actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.bigint "type_id"
-    t.date "date"
+    t.datetime "datetime"
     t.bigint "agent_id"
     t.bigint "patient_id"
     t.datetime "created_at", null: false

@@ -1,6 +1,6 @@
 class Action < ApplicationRecord
 
-  belongs_to :type
+  belongs_to :type, class_name: 'ActionType'
   belongs_to :agent
   belongs_to :patient
 
