@@ -32,11 +32,11 @@ module SeedHelpers
       )
     end
 
-    def create_patient(name, address)
+    def create_patient(name, code, address)
       Patient.create!(
         name:       name,
         birth_date: SeedHelpers.random_birth_date,
-        code:       Time.now.to_s,
+        code:       code,
         address:    address,
         picture:    File.new("#{Rails.root}/../res/patients/#{name.downcase}.jpg")
       )
@@ -44,12 +44,12 @@ module SeedHelpers
   end
 end
 
-annie      = SeedHelpers.create_agent("Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe les ongles'])
+annie      = SeedHelpers.create_agent("Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
 jacqueline = SeedHelpers.create_agent("Jacqueline", 'Infirmier', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
 alberto    = SeedHelpers.create_agent("Alberto",    'Voisin',    ['Visite'])
 michele    = SeedHelpers.create_agent("Michèle",    'Voisin',    ['Visite', 'Courses'])
 josiane    = SeedHelpers.create_agent("Josiane",    'Ami',       ['Visite'])
 
-alberte  = SeedHelpers.create_patient('Alberte',  "Rue de Nimy 27, 7000 Mons, Belgium")
-gilberte = SeedHelpers.create_patient('Gilberte', "Rue Royale 42, 7500 Tournai, Belgium")
+alberte  = SeedHelpers.create_patient('Alberte',  'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
+gilberte = SeedHelpers.create_patient('Gilberte', 'yu', "Rue Royale 42, 7500 Tournai, Belgium")
 

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170728140020) do
 
-  create_table "action_type_agent_links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "action_type_agent_links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.bigint "action_type_id"
     t.bigint "agent_id"
     t.datetime "created_at", null: false
@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20170728140020) do
     t.index ["agent_id"], name: "index_action_type_agent_links_on_agent_id"
   end
 
-  create_table "action_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "action_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.bigint "type_id"
     t.date "date"
     t.bigint "agent_id"
@@ -39,13 +39,13 @@ ActiveRecord::Schema.define(version: 20170728140020) do
     t.index ["type_id"], name: "index_actions_on_type_id"
   end
 
-  create_table "agent_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "agent_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "agents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "agents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.bigint "type_id"
     t.string "picture"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170728140020) do
     t.index ["type_id"], name: "index_agents_on_type_id"
   end
 
-  create_table "patients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "patients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.string "name"
     t.date "birth_date"
     t.text "code"
