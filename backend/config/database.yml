@@ -12,7 +12,7 @@ development:
 production:
   adapter: mysql2
   host: localhost
-  username: root
+  username: deploy
   password: IR3Z7kkFpm5yMFZ
   database: backend
   encoding: utf8mb4
