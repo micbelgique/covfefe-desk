@@ -1,5 +1,22 @@
 development:
   adapter: mysql2
-  database: covfefe-desk
-  encoding: utf8
+  host: localhost
   username: root
+  password:
+  database: covfefe-desk
+  pool: 5
+  timeout: 5000
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+
+production:
+  adapter: mysql2
+  host: localhost
+  username: root
+  password: IR3Z7kkFpm5yMFZ
+  database: backend
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+  #pool: 10
+  #reconnect: true
+  #timeout: 5000
