@@ -22,8 +22,9 @@ module SeedHelpers
       Date.civil(year, month, day)
     end
 
-    def create_agent(name, type, action_types)
+    def create_agent(device_id, name, type, action_types)
       Agent.create!(
+        device_id:    device_id,
         name:         name,
         type:         SeedHelpers.agent_type(type),
         action_types: SeedHelpers.action_types(action_types),
@@ -44,11 +45,11 @@ module SeedHelpers
   end
 end
 
-annie      = SeedHelpers.create_agent("Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
-jacqueline = SeedHelpers.create_agent("Jacqueline", 'Infirmier', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
-alberto    = SeedHelpers.create_agent("Alberto",    'Voisin',    ['Visite'])
-michele    = SeedHelpers.create_agent("Michèle",    'Voisin',    ['Visite', 'Courses'])
-josiane    = SeedHelpers.create_agent("Josiane",    'Ami',       ['Visite'])
+annie      = SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
+jacqueline = SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmier', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
+alberto    = SeedHelpers.create_agent('',                                     "Alberto",    'Voisin',    ['Visite'])
+michele    = SeedHelpers.create_agent('',                                     "Michèle",    'Voisin',    ['Visite', 'Courses'])
+josiane    = SeedHelpers.create_agent('',                                     "Josiane",    'Ami',       ['Visite'])
 
 alberte  = SeedHelpers.create_patient('Alberte',  'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
 gilberte = SeedHelpers.create_patient('Gilberte', 'yu', "Rue Royale 42, 7500 Tournai, Belgium")
