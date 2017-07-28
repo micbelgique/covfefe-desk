@@ -1,0 +1,81 @@
+
+// Body
+$body-bg: #f5f8fa;
+
+// Sidebar
+$sidebar-bg: #222d32;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary: #2e4053;
+$brand-info: #3097d1;
+$brand-success: #2ab27b;
+$brand-warning: #e96900;
+$brand-danger: #dc5b5b;
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: "Open Sans", sans-serif;
+$font-size-base: 13px;
+$line-height-base: 1.6;
+$text-color: #333;
+
+// Navbar
+$navbar-default-bg: #fff;
+$navbar-margin-bottom: 0;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #f4f3f3;
+$panel-default-footer-bg: #f4f3f3;
+
+$panel-primary-border: darken($brand-primary, 5%);
+$panel-primary-text: #ffffff;
+$panel-primary-heading-bg: $brand-primary;
+
+$panel-info-border: darken($brand-info, 5%);
+$panel-info-text: #ffffff;
+$panel-info-heading-bg: $brand-info;
+
+$panel-success-border: darken($brand-success, 5%);
+$panel-success-text: #ffffff;
+$panel-success-heading-bg: $brand-success;
+
+$panel-warning-border: darken($brand-warning, 5%);
+$panel-warning-text: #ffffff;
+$panel-warning-heading-bg: $brand-warning;
+
+$panel-danger-border: darken($brand-danger, 5%);
+$panel-danger-text: #ffffff;
+$panel-danger-heading-bg: $brand-danger;
+
+// Colors
+$light-blue: #3c8dbc;
+$red: #dd4b39;
+$green: #00a65a;
+$aqua: #00c0ef;
+$yellow: #f39c12;
+$blue: #0073b7;
+$navy: #001F3F;
+$teal: #39CCCC;
+$olive: #3D9970;
+$lime: #01FF70;
+$orange: #FF851B;
+$fuchsia: #F012BE;
+$purple: #605ca8;
+$maroon: #D81B60;
+$black: #111;
+$gray-lte: #d2d6de;
