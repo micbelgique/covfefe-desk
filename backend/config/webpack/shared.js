@@ -53,6 +53,6 @@ module.exports = {
   },
 
   resolveLoader: {
-    modules: ['node_modules']
+    modules: ['node_modules', 'app/javascript/packs']
   }
 }
