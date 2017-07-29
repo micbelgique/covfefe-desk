@@ -17,6 +17,6 @@ json.actions @patient.actions.order(datetime: :desc).limit(10) do |action|
 
   json.agent do
     json.name        action.agent.name
-    json.picture_url action.agent.picture.url
+    json.picture_url action.agent.picture_url
   end
 end
