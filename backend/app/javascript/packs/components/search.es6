@@ -13,6 +13,7 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.reloadFromBackend()
+    this.logoUrl = $('.logo-path').attr('data-logo-path')
   }
 
   handleClickOutside(evt) {
@@ -58,7 +59,7 @@ class Search extends React.Component {
     return (
       <div>
         <img className="logo"
-             src="/assets/famidesk.png" />
+             src={this.logoUrl} />
 
         <input type="search"
                placeholder="Rechercher un patient ou un agent"
