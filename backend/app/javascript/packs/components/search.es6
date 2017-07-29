@@ -42,7 +42,8 @@ class Search extends React.Component {
                placeholder="Rechercher un patient ou un agent"
                className="search-input"
                value={ this.state.search }
-               onChange={ this.updateSearch.bind(this) } />
+               onChange={ this.updateSearch.bind(this) }
+               autoFocus="true" />
 
         <div className="suggestions">
           { this.renderSuggestions() }
@@ -55,9 +56,10 @@ class Search extends React.Component {
     return _.map(this.filteredSuggestions(), (suggestion, index) => {
       return (
         <div className="suggestion"
-             key={index}>
+             key={index}
+             onClick={ this.props.selectPerson.bind(this, suggestion) }>
           <img src={ suggestion.pictureUrl } width="40"/>
-          <span onClick={ this.props.selectPerson.bind(this, suggestion) }>{ suggestion.name }</span>
+          <span>{ suggestion.name }</span>
         </div>
       )
     })

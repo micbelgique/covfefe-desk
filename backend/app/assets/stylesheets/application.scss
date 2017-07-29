@@ -14,22 +14,60 @@
     justify-content: center;
 }
 
+.content {
+    position: relative;
+    width: 500px;
+}
+
 .search-input {
     border: 1px solid hsl(0, 0%, 80%);
     outline: none;
     padding: 8px;
-    width: 300px;
+    width: 100%;
+}
+
+.suggestions {
+    background: hsl(0, 0%, 100%);
+    border: 1px solid hsl(0, 0%, 80%);
+    border-top: 0;
+    cursor: pointer;
+    max-height: 200px;
+    overflow-x: scroll;
+    position: absolute;
+    width: 100%;
+
+    .suggestion {
+        line-height: 40px;
+        padding: 0 5px;
+
+        &:hover {
+            background: hsl(201, 72%, 50%);
+            color: hsl(0, 0%, 100%);
+        }
+
+        img {
+            margin-right: 5px;
+            max-height: 40px;
+            max-width: 40px;
+        }
+
+        &.empty {
+            background: hsl(0, 0%, 98%);
+            color: hsl(0, 0%, 50%)
+        }
+    }
 }
 
 .agent-page {
     background: hsl(0, 0%, 100%);
     border-top: 5px solid hsl(176, 84%, 38%);
     border-radius: 5px;
-    box-shadow: 10px 10px 10px hsl(60, 4%, 89%);
+    box-shadow: 0 10px 10px hsl(60, 4%, 89%);
     padding: 10px;
 
     .agent-photo {
         border-radius: 50%;
+        box-shadow: 0 5px 5px hsl(60, 4%, 89%);
         margin: -60px auto 0;
         overflow: hidden;
         text-align: center;
