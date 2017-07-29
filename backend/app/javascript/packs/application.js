@@ -6,5 +6,6 @@ require('axios')
 
 global.React    = require('react')
 global.ReactDOM = require('react-dom')
+global._        = require('lodash')
 
 require('./components/main.es6')

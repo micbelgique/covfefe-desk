@@ -11,6 +11,12 @@ class Main extends React.Component {
     }
   }
 
+  changePage(newPage) {
+    this.setState({
+      page: newPage
+    })
+  }
+
   render() {
     return (
       <div>
@@ -22,15 +28,15 @@ class Main extends React.Component {
   }
 
   renderSearch() {
-    if(this.state.page = 'search') {
+    if(this.state.page == 'search') {
       return (
-        <Search />
+        <Search changePage={this.changePage.bind(this)}/>
       )
     }
   }
 
   renderPatient() {
-    if(this.state.page = 'patient') {
+    if(this.state.page == 'patient') {
       return (
         <Patient />
       )
@@ -38,7 +44,7 @@ class Main extends React.Component {
   }
 
   renderAgent() {
-    if(this.state.page = 'agent') {
+    if(this.state.page == 'agent') {
       return (
         <Agent />
       )
