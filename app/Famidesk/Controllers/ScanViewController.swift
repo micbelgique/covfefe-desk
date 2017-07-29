@@ -19,7 +19,7 @@ class ScanViewController: UIViewController {
         
         /* To remove */
         scannerView.stopScanning()
-        showProfile(grannyId: "42")
+        showProfile(grannyId: "1")
         /* *** */
     }
     
@@ -42,7 +42,7 @@ class ScanViewController: UIViewController {
     // Passing the granny id to the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let yourVC = segue.destination as? GrannyProfileViewController, let grannyId = sender as? String {
-            yourVC.grannyId = grannyId
+            yourVC.patientId = grannyId
         }
     }
     

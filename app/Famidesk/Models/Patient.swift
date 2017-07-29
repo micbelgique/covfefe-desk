@@ -8,12 +8,21 @@
 
 import Foundation
 
-class Patient {
-
-    static func getPatientWithCode(code: String) -> Patient {
-        
-        // TODO
-        
-        return Patient()
+class Patient: NSObject {
+    
+    var name: String?
+    var birth_date: Date?
+    var age: Int?
+    var picture_url: URL?
+    
+    
+    
+    init(json: Any) {
+        if let json = json as? [String: Any] {
+            self.name = json["name"] as? String
+            self.birth_date = Date.stringToDate(stringDate: json["birth_date"] as? String)
+            self.age = json["age"] as? Int
+            self.picture_url = URL(string: json["picture_url"] as? String ?? "")
+        }
     }
 }

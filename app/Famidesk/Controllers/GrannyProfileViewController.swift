@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SDWebImage
 
 class GrannyProfileViewController: UIViewController {
     
@@ -16,18 +18,37 @@ class GrannyProfileViewController: UIViewController {
     
     @IBOutlet weak var actionsTableView: UITableView!
     
-    var grannyId: String? {
+    var patient: Patient? {
         didSet {
-            if grannyId != nil {
-                initTableView()
+            updateView()
+        }
+    }
+    
+    var patientId: String? {
+        didSet {
+            if let patientId = patientId, patient == nil {
+                loadData(patientId: patientId)
             }
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if grannyId != nil {
+        if patient != nil {
             initTableView()
+        }
+    }
+    
+    func updateView() {
+        guard let patient = patient else {
+            return
+        }
+        
+        profileImageView.sd_setImage(with: patient.picture_url)
+        
+        if let name = patient.name, let birthDate = patient.birth_date, let age = patient.age {
+            identityLabel.text = "\(name) - \(birthDate.toPrettyString()) (\(age) ans)"
         }
     }
     
@@ -60,5 +81,30 @@ extension GrannyProfileViewController: UITableViewDataSource {
 extension GrannyProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO
+    }
+}
+
+extension GrannyProfileViewController {
+    // Network
+    
+    func loadData(patientId: String) {
+        Alamofire.request(URLHelper.getUrlForQRCode(qrCodeContent: patientId)).responseJSON {
+            (response: DataResponse<Any>) in
+            
+            let patientResponse = response.map { json -> Patient? in
+                // We assume an existing User(json: Any) initializer
+                if let patientJson = (json as? [String: Any])?["patient"] {
+                    return Patient(json: patientJson)
+                }
+                return nil
+            }
+            
+            //Process patientResponse, of type DataResponse<Patient>:
+            if let patient = patientResponse.value {
+                print("Patient: { username: \(patient?.name), name: \(patient?.age) }")
+                self.patient = patient
+                self.updateView()
+            }
+        }
     }
 }
