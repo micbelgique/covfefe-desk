@@ -90,7 +90,7 @@ class Search extends React.Component {
         <div className="suggestion"
              key={index}
              onClick={ this.props.selectPerson.bind(this, suggestion) }>
-          <img src={ suggestion.pictureUrl } width="40"/>
+          <img src={ suggestion.thumbPictureUrl } />
           <span>{ suggestion.name }</span>
         </div>
       )

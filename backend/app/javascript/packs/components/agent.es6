@@ -8,12 +8,15 @@ class Agent extends React.Component {
   render() {
     return (
       <div>
-        <div className="back"></div>
+        <div className="back"
+             onClick={ this.props.selectPerson.bind(this, undefined) }>
+            &larr;
+        </div>
         <div className="agent-page">
           <div className="agent-photo">
             <img src={this.props.agent.pictureUrl} alt="Photo"/>
           </div>
-          <div className="agent-details">
+          <div className="agent-details text-center">
             <div className="agent-name">{this.props.agent.name}</div>
             <div className="agent-type">{this.props.agent.type}</div>
           </div>
