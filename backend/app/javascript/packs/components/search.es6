@@ -9,9 +9,18 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    this.dUpdateSuggestions = _.debounce(this.updateSuggestions, 300)
+    this.reloadFromBackend()
+  }
 
-    this.updateSuggestions()
+  reloadFromBackend() {
+    axios.get('/api/people.json').then((response) => {
+      let patients = humps.camelizeKeys(response.data.patients)
+      let agents   = humps.camelizeKeys(response.data.agents)
+
+      let suggestions = patients.concat(agents)
+
+      this.setState({ suggestions: _.sortBy(suggestions, 'name') })
+    })
   }
 
   updateSearch(e) {
@@ -20,18 +29,9 @@ class Search extends React.Component {
     }, this.dUpdateSuggestions)
   }
 
-  updateSuggestions() {
-    axios.get('/api/people.json').then((response) => {
-      let patients = humps.camelizeKeys(response.data.patients)
-      let agents   = humps.camelizeKeys(response.data.agents)
-
-      let suggestions = patients.concat(agents)
-
-      suggestions = _.filter(suggestions, (suggestion) => {
-        return suggestion.name.toLowerCase().indexOf(this.state.search) > -1
-      })
-
-      this.setState({ suggestions: _.sortBy(suggestions, 'name') })
+  filteredSuggestions() {
+    return _.filter(this.state.suggestions, (suggestion) => {
+      return suggestion.name.toLowerCase().indexOf(this.state.search) > -1
     })
   }
 
@@ -52,7 +52,7 @@ class Search extends React.Component {
   }
 
   renderSuggestions() {
-    return _.map(this.state.suggestions, (suggestion, index) => {
+    return _.map(this.filteredSuggestions(), (suggestion, index) => {
       return (
         <div className="suggestion"
              key={index}>
