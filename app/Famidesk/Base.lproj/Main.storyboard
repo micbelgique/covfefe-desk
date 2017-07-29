@@ -26,48 +26,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cornerTopLeft" translatesAutoresizingMaskIntoConstraints="NO" id="uyE-L5-ZHc">
-                                <rect key="frame" x="62.5" y="208.5" width="50" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraCorner" translatesAutoresizingMaskIntoConstraints="NO" id="uyE-L5-ZHc">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Gzx-eU-e91"/>
-                                    <constraint firstAttribute="width" constant="50" id="UcO-0h-11c"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cornerTopRight" translatesAutoresizingMaskIntoConstraints="NO" id="W72-gd-ctf">
-                                <rect key="frame" x="262.5" y="208.5" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="PmM-sm-5q7"/>
-                                    <constraint firstAttribute="width" constant="50" id="WeP-6s-yWy"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cornerBottomLeft" translatesAutoresizingMaskIntoConstraints="NO" id="IRU-bD-ZKW">
-                                <rect key="frame" x="62.5" y="408.5" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="H2i-YG-YjI"/>
-                                    <constraint firstAttribute="width" constant="50" id="odp-dT-lri"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cornerBottomRight" translatesAutoresizingMaskIntoConstraints="NO" id="xbT-TI-c8M">
-                                <rect key="frame" x="262.5" y="408.5" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="2Gh-do-Ay4"/>
-                                    <constraint firstAttribute="height" constant="50" id="Od4-0e-7LL"/>
+                                    <constraint firstAttribute="width" constant="200" id="MhP-3j-snt"/>
+                                    <constraint firstAttribute="height" constant="200" id="hrx-7v-egM"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MRG-Vf-iPN" secondAttribute="bottom" id="5Ic-e6-Wh1"/>
-                            <constraint firstItem="W72-gd-ctf" firstAttribute="centerY" secondItem="uyE-L5-ZHc" secondAttribute="centerY" id="Ahu-b8-1xc"/>
+                            <constraint firstItem="uyE-L5-ZHc" firstAttribute="centerX" secondItem="MRG-Vf-iPN" secondAttribute="centerX" id="Cj9-1U-o7G"/>
                             <constraint firstItem="MRG-Vf-iPN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="N96-1X-6FW"/>
-                            <constraint firstItem="W72-gd-ctf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="100" id="U7m-qR-ha8"/>
-                            <constraint firstItem="IRU-bD-ZKW" firstAttribute="centerX" secondItem="uyE-L5-ZHc" secondAttribute="centerX" id="Wx8-AX-71O"/>
-                            <constraint firstItem="xbT-TI-c8M" firstAttribute="centerX" secondItem="W72-gd-ctf" secondAttribute="centerX" id="YPs-ae-NEt"/>
-                            <constraint firstItem="xbT-TI-c8M" firstAttribute="centerY" secondItem="IRU-bD-ZKW" secondAttribute="centerY" id="ZeS-EZ-lcc"/>
-                            <constraint firstItem="uyE-L5-ZHc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="eCw-tP-LHA"/>
                             <constraint firstItem="MRG-Vf-iPN" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eHr-fI-lag"/>
-                            <constraint firstItem="IRU-bD-ZKW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="qJ1-fz-8dk"/>
-                            <constraint firstItem="uyE-L5-ZHc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-100" id="smF-Pf-NzU"/>
+                            <constraint firstItem="uyE-L5-ZHc" firstAttribute="centerY" secondItem="MRG-Vf-iPN" secondAttribute="centerY" id="rib-WF-6yf"/>
                             <constraint firstAttribute="trailing" secondItem="MRG-Vf-iPN" secondAttribute="trailing" id="zmB-M5-tr8"/>
                         </constraints>
                     </view>
@@ -75,6 +48,7 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="cameraCornerImageView" destination="uyE-L5-ZHc" id="5Ai-Ed-OhU"/>
                         <outlet property="scannerView" destination="MRG-Vf-iPN" id="rFh-5R-v5d"/>
                         <segue destination="k0L-Hk-Hvh" kind="show" identifier="showGrannyProfile" id="Lmm-aw-e8N"/>
                     </connections>
@@ -227,10 +201,7 @@
     </scenes>
     <resources>
         <image name="annie" width="50" height="54"/>
-        <image name="cornerBottomLeft" width="100" height="100"/>
-        <image name="cornerBottomRight" width="100" height="100"/>
-        <image name="cornerTopLeft" width="100" height="100"/>
-        <image name="cornerTopRight" width="100" height="100"/>
+        <image name="cameraCorner" width="500" height="500"/>
         <image name="shower" width="50" height="55"/>
     </resources>
 </document>

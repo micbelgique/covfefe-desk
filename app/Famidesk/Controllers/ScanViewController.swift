@@ -12,6 +12,8 @@ class ScanViewController: UIViewController {
     
     // Views
     @IBOutlet weak var scannerView: ScannerView!
+    @IBOutlet weak var cameraCornerImageView: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
