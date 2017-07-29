@@ -12,13 +12,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
-  <div id="app" class="wrapper">
-    <div class="content-wrapper">
-      <div class="content">
-        <%= yield %>
-      </div>
-    </div>
-  </div>
+  <%= yield %>
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag    'application' %>
