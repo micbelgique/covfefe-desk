@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CDFCE2970B5B6960071603D /* Pods_Famidesk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74045A090411E0B87ED7E439 /* Pods_Famidesk.framework */; };
 		C300A91D1F2B805D001A9737 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C300A91C1F2B805D001A9737 /* ScannerView.swift */; };
 		C32A1C4A1F2BA75F0035F9C2 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C491F2BA75F0035F9C2 /* ActionCell.swift */; };
 		C32A1C4D1F2C7FE90035F9C2 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C4C1F2C7FE90035F9C2 /* Action.swift */; };
@@ -21,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		365AF0F960B05D7A1BF20317 /* Pods-Famidesk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Famidesk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Famidesk/Pods-Famidesk.debug.xcconfig"; sourceTree = "<group>"; };
+		404790D9226FD7C14741C9A2 /* Pods-Famidesk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Famidesk.release.xcconfig"; path = "Pods/Target Support Files/Pods-Famidesk/Pods-Famidesk.release.xcconfig"; sourceTree = "<group>"; };
+		74045A090411E0B87ED7E439 /* Pods_Famidesk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Famidesk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C300A91C1F2B805D001A9737 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		C32A1C491F2BA75F0035F9C2 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
 		C32A1C4C1F2C7FE90035F9C2 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -41,12 +45,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDFCE2970B5B6960071603D /* Pods_Famidesk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		994986ED0309030D9B2F7E57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74045A090411E0B87ED7E439 /* Pods_Famidesk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C300A91A1F2B7FA7001A9737 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,8 @@
 			children = (
 				C368F4361F2B64C800D45C83 /* Famidesk */,
 				C368F4351F2B64C800D45C83 /* Products */,
+				E743974BE34E7D4264C3BB7C /* Pods */,
+				994986ED0309030D9B2F7E57 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +137,15 @@
 			path = Famidesk;
 			sourceTree = "<group>";
 		};
+		E743974BE34E7D4264C3BB7C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				365AF0F960B05D7A1BF20317 /* Pods-Famidesk.debug.xcconfig */,
+				404790D9226FD7C14741C9A2 /* Pods-Famidesk.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C368F4461F2B64C800D45C83 /* Build configuration list for PBXNativeTarget "Famidesk" */;
 			buildPhases = (
+				2C24AA20FBCA55FBE8023EB2 /* [CP] Check Pods Manifest.lock */,
 				C368F4301F2B64C700D45C83 /* Sources */,
 				C368F4311F2B64C700D45C83 /* Frameworks */,
 				C368F4321F2B64C700D45C83 /* Resources */,
+				EA675A007DCEC413A3155CB3 /* [CP] Embed Pods Frameworks */,
+				2E09825226A524F2D31DC438 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,6 +216,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C24AA20FBCA55FBE8023EB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2E09825226A524F2D31DC438 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Famidesk/Pods-Famidesk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA675A007DCEC413A3155CB3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Famidesk/Pods-Famidesk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C368F4301F2B64C700D45C83 /* Sources */ = {
@@ -325,6 +400,7 @@
 		};
 		C368F4471F2B64C800D45C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 365AF0F960B05D7A1BF20317 /* Pods-Famidesk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7BLV3NRPHY;
@@ -338,6 +414,7 @@
 		};
 		C368F4481F2B64C800D45C83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 404790D9226FD7C14741C9A2 /* Pods-Famidesk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7BLV3NRPHY;
