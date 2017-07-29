@@ -16,6 +16,11 @@ class ScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scannerView.qrCodeFoundDelegate = self
+        
+        /* To remove */
+        scannerView.stopScanning()
+        showProfile(grannyId: "42")
+        /* *** */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,12 +49,16 @@ class ScanViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func showProfile(grannyId: String) {
+        scannerView.stopScanning()
+        performSegue(withIdentifier:"showGrannyProfile", sender: grannyId)
+    }
 }
 
 extension ScanViewController: QRCodeFoundDelegate {
     func grannyScanned(grannyId: String) {
-        scannerView.stopScanning()
-        performSegue(withIdentifier:"showGrannyProfile", sender: grannyId)
+        showProfile(grannyId: grannyId)
     }
 }
 

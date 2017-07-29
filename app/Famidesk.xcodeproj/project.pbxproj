@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C300A91D1F2B805D001A9737 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C300A91C1F2B805D001A9737 /* ScannerView.swift */; };
 		C32A1C4A1F2BA75F0035F9C2 /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C491F2BA75F0035F9C2 /* ActionCell.swift */; };
+		C32A1C4D1F2C7FE90035F9C2 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C4C1F2C7FE90035F9C2 /* Action.swift */; };
 		C368F4381F2B64C800D45C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368F4371F2B64C800D45C83 /* AppDelegate.swift */; };
 		C368F43A1F2B64C800D45C83 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368F4391F2B64C800D45C83 /* ScanViewController.swift */; };
 		C368F43D1F2B64C800D45C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C368F43B1F2B64C800D45C83 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		C300A91C1F2B805D001A9737 /* ScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		C32A1C491F2BA75F0035F9C2 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
+		C32A1C4C1F2C7FE90035F9C2 /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		C368F4341F2B64C800D45C83 /* Famidesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Famidesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C368F4371F2B64C800D45C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C368F4391F2B64C800D45C83 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C32A1C4B1F2C7FB50035F9C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C32A1C4C1F2C7FE90035F9C2 /* Action.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C368F42B1F2B64C700D45C83 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		C368F4361F2B64C800D45C83 /* Famidesk */ = {
 			isa = PBXGroup;
 			children = (
+				C32A1C4B1F2C7FB50035F9C2 /* Models */,
 				C32A1C481F2BA7420035F9C2 /* Cells */,
 				C300A91B1F2B7FB3001A9737 /* Controllers */,
 				C300A91A1F2B7FA7001A9737 /* Views */,
@@ -171,6 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C300A91D1F2B805D001A9737 /* ScannerView.swift in Sources */,
+				C32A1C4D1F2C7FE90035F9C2 /* Action.swift in Sources */,
 				C32A1C4A1F2BA75F0035F9C2 /* ActionCell.swift in Sources */,
 				C3F996C21F2B95220059B34C /* GrannyProfileViewController.swift in Sources */,
 				C368F43A1F2B64C800D45C83 /* ScanViewController.swift in Sources */,

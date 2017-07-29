@@ -165,6 +165,11 @@
                                                 <constraint firstItem="ZqE-NK-mal" firstAttribute="centerY" secondItem="TKn-Vx-SeH" secondAttribute="centerY" id="pdK-ct-9Tj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="actionImageView" destination="iXi-fk-3Bp" id="5Fc-Xp-3ZB"/>
+                                            <outlet property="agentImageView" destination="wdI-Y5-Eeq" id="iJU-dd-9Qn"/>
+                                            <outlet property="dateLabel" destination="ZqE-NK-mal" id="qLh-IV-U8j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -11,7 +11,11 @@ import UIKit
 
 class ActionCell: UITableViewCell {
     
+    @IBOutlet weak var actionImageView: UIImageView!
+    @IBOutlet weak var agentImageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
-  
-    
+    func setup() {
+        // TODO
+    }
 }
