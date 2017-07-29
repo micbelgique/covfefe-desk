@@ -28,7 +28,7 @@ module SeedHelpers
         name:         name,
         type:         SeedHelpers.agent_type(type),
         action_types: SeedHelpers.action_types(action_types),
-        picture:      File.new("misc/pictures/agents/annie.jpg")
+        picture:      File.new("misc/pictures/agents/#{name.downcase}.jpg")
       )
     end
 
@@ -44,16 +44,20 @@ module SeedHelpers
   end
 end
 
-annie      = SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
-jacqueline = SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmier', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
-alberto    = SeedHelpers.create_agent('',                                     "Alberto",    'Voisin',    ['Visite'])
-michele    = SeedHelpers.create_agent('',                                     "Michèle",    'Voisin',    ['Visite', 'Courses'])
-josiane    = SeedHelpers.create_agent('',                                     "Josiane",    'Ami',       ['Visite'])
+SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
+SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmier', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
+SeedHelpers.create_agent('',                                     "Alberto",    'Voisin',    ['Visite'])
+SeedHelpers.create_agent('',                                     "Michel",     'Voisin',    ['Visite', 'Courses'])
+SeedHelpers.create_agent('',                                     "Josiane",    'Ami',       ['Visite'])
 
-alberte  = SeedHelpers.create_patient('Alberte',  'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
-gilberte = SeedHelpers.create_patient('Gilberte', 'yu', "Rue Royale 42, 7500 Tournai, Belgium")
+SeedHelpers.create_patient('Alberte',   'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
+SeedHelpers.create_patient('Gilberte',  'gi', "Rue Royale 42, 7500 Tournai, Belgium")
+SeedHelpers.create_patient('Xavier',    'xa', "Rue de Nimy 27, 7000 Mons, Belgium")
+SeedHelpers.create_patient('Paulette',  'pa', "Rue de Nimy 27, 7000 Mons, Belgium")
+SeedHelpers.create_patient('Nina',      'ni', "Rue de Nimy 27, 7000 Mons, Belgium")
+SeedHelpers.create_patient('Jules',     'ju', "Rue de Nimy 27, 7000 Mons, Belgium")
 
-[alberte, gilberte].each do |patient|
+Patient.all.each do |patient|
   datetime = Time.now
 
   (rand(10) + 2).times do
