@@ -39,7 +39,7 @@ class Search extends React.Component {
     return (
       <div>
         <input type="search"
-               placeholder="Commencez à taper..."
+               placeholder="Rechercher un patient ou un agent"
                className="search-input"
                value={ this.state.search }
                onChange={ this.updateSearch.bind(this) } />
@@ -57,7 +57,7 @@ class Search extends React.Component {
         <div className="suggestion"
              key={index}>
           <img src={ suggestion.pictureUrl } width="40"/>
-          <span>{ suggestion.name }</span>
+          <span onClick={ this.props.selectPerson.bind(this, suggestion) }>{ suggestion.name }</span>
         </div>
       )
     })
