@@ -28,8 +28,7 @@ module SeedHelpers
         name:         name,
         type:         SeedHelpers.agent_type(type),
         action_types: SeedHelpers.action_types(action_types),
-        # picture:    File.new("#{Rails.root}/../res/agents/#{name.downcase}.jpg")
-        picture:    File.new("misc/pictures/agents/annie.jpg")
+        picture:      File.new("misc/pictures/agents/annie.jpg")
       )
     end
 

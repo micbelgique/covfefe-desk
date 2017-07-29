@@ -1,6 +1,6 @@
 class Agent < ApplicationRecord
 
-  mount_uploader :picture, PictureUploader
+  include Picture
 
   belongs_to :type, class_name: 'AgentType'
 
