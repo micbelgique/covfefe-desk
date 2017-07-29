@@ -8,7 +8,7 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        Search
+        <input type="search" placeholder="Commencez à taper..." class="search-input" />
       </div>
     )
   }

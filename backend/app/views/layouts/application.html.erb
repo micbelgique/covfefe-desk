@@ -12,7 +12,11 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
-  <%= yield %>
+  <div class="flex-center position-ref full-height">
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
 
   <%= javascript_include_tag 'application' %>
   <%= javascript_pack_tag    'application' %>
