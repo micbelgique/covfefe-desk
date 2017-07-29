@@ -19,6 +19,14 @@
     width: 500px;
 }
 
+.logo {
+    position: absolute;
+    width: 420px;
+    margin-left: -210px;
+    left: 50%;
+    top: -280px;
+}
+
 .search-input {
     border: 1px solid hsl(0, 0%, 80%);
     outline: none;

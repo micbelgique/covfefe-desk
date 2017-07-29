@@ -1,15 +1,22 @@
+import onClickOutside from 'react-onclickoutside'
+
 class Search extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
       search:      "",
+      open:        false,
       suggestions: []
     }
   }
 
   componentDidMount() {
     this.reloadFromBackend()
+  }
+
+  handleClickOutside(evt) {
+    this.close()
   }
 
   reloadFromBackend() {
@@ -29,6 +36,18 @@ class Search extends React.Component {
     }, this.dUpdateSuggestions)
   }
 
+  open() {
+    this.setState({
+      open: true
+    })
+  }
+
+  close() {
+    this.setState({
+      open: false
+    })
+  }
+
   filteredSuggestions() {
     return _.filter(this.state.suggestions, (suggestion) => {
       return suggestion.name.toLowerCase().indexOf(this.state.search) > -1
@@ -38,18 +57,30 @@ class Search extends React.Component {
   render() {
     return (
       <div>
+        <img className="logo"
+             src="/assets/famidesk.png" />
+
         <input type="search"
                placeholder="Rechercher un patient ou un agent"
                className="search-input"
                value={ this.state.search }
                onChange={ this.updateSearch.bind(this) }
+               onFocus={ this.open.bind(this) }
                autoFocus="true" />
 
+        { this.renderSuggestionsContainer() }
+      </div>
+    )
+  }
+
+  renderSuggestionsContainer() {
+    if(this.state.open) {
+      return (
         <div className="suggestions">
           { this.renderSuggestions() }
         </div>
-      </div>
-    )
+      )
+    }
   }
 
   renderSuggestions() {
@@ -66,4 +97,4 @@ class Search extends React.Component {
   }
 }
 
-module.exports = Search
+export default onClickOutside(Search)
