@@ -15,6 +15,7 @@
 		C32A1C521F2C82490035F9C2 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C511F2C82490035F9C2 /* URLHelper.swift */; };
 		C32A1C541F2C847D0035F9C2 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C531F2C847D0035F9C2 /* NetworkHelper.swift */; };
 		C32A1C571F2C943B0035F9C2 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C561F2C943B0035F9C2 /* Date.swift */; };
+		C32A1C591F2C983D0035F9C2 /* Agent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32A1C581F2C983D0035F9C2 /* Agent.swift */; };
 		C368F4381F2B64C800D45C83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368F4371F2B64C800D45C83 /* AppDelegate.swift */; };
 		C368F43A1F2B64C800D45C83 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C368F4391F2B64C800D45C83 /* ScanViewController.swift */; };
 		C368F43D1F2B64C800D45C83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C368F43B1F2B64C800D45C83 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 		C32A1C511F2C82490035F9C2 /* URLHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		C32A1C531F2C847D0035F9C2 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		C32A1C561F2C943B0035F9C2 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C32A1C581F2C983D0035F9C2 /* Agent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Agent.swift; sourceTree = "<group>"; };
 		C368F4341F2B64C800D45C83 /* Famidesk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Famidesk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C368F4371F2B64C800D45C83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C368F4391F2B64C800D45C83 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				C32A1C4C1F2C7FE90035F9C2 /* Action.swift */,
 				C32A1C4E1F2C81EC0035F9C2 /* Patient.swift */,
+				C32A1C581F2C983D0035F9C2 /* Agent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				C32A1C4F1F2C81EC0035F9C2 /* Patient.swift in Sources */,
 				C32A1C521F2C82490035F9C2 /* URLHelper.swift in Sources */,
 				C368F43A1F2B64C800D45C83 /* ScanViewController.swift in Sources */,
+				C32A1C591F2C983D0035F9C2 /* Agent.swift in Sources */,
 				C368F4381F2B64C800D45C83 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
