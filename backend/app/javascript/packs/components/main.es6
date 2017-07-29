@@ -38,7 +38,7 @@ class Main extends React.Component {
   renderPatient() {
     if(this.state.currentPerson && this.state.currentPerson.personType == 'patient') {
       return (
-        <Patient patient={this.state.currentPerson} />
+        <Patient selectPerson={this.selectPerson.bind(this)} patient={this.state.currentPerson} />
       )
     }
   }
@@ -46,7 +46,7 @@ class Main extends React.Component {
   renderAgent() {
     if(this.state.currentPerson && this.state.currentPerson.personType == 'agent') {
       return (
-        <Agent agent={this.state.currentPerson} />
+        <Agent selectPerson={this.selectPerson.bind(this)} agent={this.state.currentPerson} />
       )
     }
   }
