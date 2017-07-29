@@ -18,8 +18,8 @@ class ScanViewController: UIViewController {
         scannerView.qrCodeFoundDelegate = self
         
         /* To remove */
-        scannerView.stopScanning()
-        showProfile(grannyId: "1")
+        //scannerView.stopScanning()
+        //showProfile(grannyId: "yo")
         /* *** */
     }
     

@@ -10,13 +10,14 @@
 import Foundation
 
 extension Date {
-    static func stringToDate(stringDate: String?) -> Date? {
+    static func stringToDate(stringDate: String?, withHour: Bool = false) -> Date? {
         guard let stringDate = stringDate else {
             return nil
         }
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd" //Your date format
+        
+        dateFormatter.dateFormat = withHour ? "yyyy-MM-dd'T'HH:mm:ss.SSSZ" : "yyyy-mm-dd" //Your date format
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+1:00") //Current time zone
         
         return dateFormatter.date(from: stringDate)
@@ -24,7 +25,7 @@ extension Date {
     
     func toPrettyString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy" //Your New Date format as per requirement change it own
+        dateFormatter.dateFormat = "dd MMMM yyyy" //Your New Date format as per requirement change it own
         
         return dateFormatter.string(from: self)
     }

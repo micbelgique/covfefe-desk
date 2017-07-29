@@ -15,7 +15,9 @@ class ActionCell: UITableViewCell {
     @IBOutlet weak var agentImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     
-    func setup() {
-        // TODO
+    func setup(action: Action) {
+        //actionImageView.
+        agentImageView.sd_setImage(with: action.agent?.picture_url)
+        dateLabel.text = action.datetime?.toPrettyString()
     }
 }
