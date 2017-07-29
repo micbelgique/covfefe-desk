@@ -27,3 +27,5 @@
 /public/system
 /public/system/*
 /public/system/**/*
+
+.DS_Store

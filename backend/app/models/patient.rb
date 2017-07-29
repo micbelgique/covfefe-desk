@@ -1,6 +1,6 @@
 class Patient < ApplicationRecord
 
-  mount_uploader :picture, PictureUploader
+  include Picture
 
   has_many :actions, dependent: :destroy
 
@@ -15,4 +15,5 @@ class Patient < ApplicationRecord
     now = Time.now.utc.to_date
     now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
   end
+
 end

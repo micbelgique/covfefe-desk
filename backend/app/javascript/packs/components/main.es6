@@ -7,13 +7,13 @@ class Main extends React.Component {
     super(props)
 
     this.state = {
-      page: "search"
+      currentPerson: undefined
     }
   }
 
-  changePage(newPage) {
+  selectPerson(person) {
     this.setState({
-      page: newPage
+      currentPerson: person
     })
   }
 
@@ -28,25 +28,25 @@ class Main extends React.Component {
   }
 
   renderSearch() {
-    if(this.state.page == 'search') {
+    if(this.state.currentPerson == undefined) {
       return (
-        <Search changePage={this.changePage.bind(this)}/>
+        <Search selectPerson={this.selectPerson.bind(this)}/>
       )
     }
   }
 
   renderPatient() {
-    if(this.state.page == 'patient') {
+    if(this.state.currentPerson && this.state.currentPerson.personType == 'patient') {
       return (
-        <Patient />
+        <Patient patient={this.state.currentPerson} />
       )
     }
   }
 
   renderAgent() {
-    if(this.state.page == 'agent') {
+    if(this.state.currentPerson && this.state.currentPerson.personType == 'agent') {
       return (
-        <Agent />
+        <Agent agent={this.state.currentPerson} />
       )
     }
   }
