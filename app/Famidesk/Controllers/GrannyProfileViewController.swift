@@ -132,6 +132,9 @@ extension GrannyProfileViewController {
                 // Get patient
                 self.patient = data?["patient"] as? Patient
                 print("Patient: { username: \(self.patient?.name), name: \(self.patient?.age) }")
+                if self.patient == nil {
+                    self.patientNotFound()
+                }
                 
                 // Get Actions
                 self.actions = data?["actions"] as? [Action]
@@ -143,6 +146,15 @@ extension GrannyProfileViewController {
                 self.updateView()
             }
         }
+    }
+    
+    func patientNotFound() {
+        var alert = UIAlertController(title: nil, message: "Erreur, le patient n'a pas été identifié", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        
+        navigationController?.popViewController(animated: true)
+        navigationController?.present(alert, animated:true, completion:nil)
     }
 }
 
