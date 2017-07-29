@@ -10,6 +10,8 @@ class Search extends React.Component {
 
   componentDidMount() {
     this.dUpdateSuggestions = _.debounce(this.updateSuggestions, 300)
+
+    this.updateSuggestions()
   }
 
   updateSearch(e) {
@@ -19,7 +21,18 @@ class Search extends React.Component {
   }
 
   updateSuggestions() {
+    axios.get('/api/people.json').then((response) => {
+      let patients = humps.camelizeKeys(response.data.patients)
+      let agents   = humps.camelizeKeys(response.data.agents)
 
+      let suggestions = patients.concat(agents)
+
+      suggestions = _.filter(suggestions, (suggestion) => {
+        return suggestion.name.toLowerCase().indexOf(this.state.search) > -1
+      })
+
+      this.setState({ suggestions: _.sortBy(suggestions, 'name') })
+    })
   }
 
   render() {
@@ -39,12 +52,12 @@ class Search extends React.Component {
   }
 
   renderSuggestions() {
-    return _.map(this.props.suggestions, (suggestion, index) => {
+    return _.map(this.state.suggestions, (suggestion, index) => {
       return (
         <div className="suggestion"
              key={index}>
-          <img src={ suggestion.pictureUrl }/>
-          <h3>{ suggestion.name }</h3>
+          <img src={ suggestion.pictureUrl } width="40"/>
+          <span>{ suggestion.name }</span>
         </div>
       )
     })
