@@ -3,7 +3,8 @@ class Search extends React.Component {
     super(props)
 
     this.state = {
-      search: ""
+      search:      "",
+      suggestions: []
     }
   }
 
@@ -31,9 +32,22 @@ class Search extends React.Component {
                onChange={ this.updateSearch.bind(this) } />
 
         <div className="suggestions">
+          { this.renderSuggestions() }
         </div>
       </div>
     )
+  }
+
+  renderSuggestions() {
+    return _.map(this.props.suggestions, (suggestion, index) => {
+      return (
+        <div className="suggestion"
+             key={index}>
+          <img src={ suggestion.pictureUrl }/>
+          <h3>{ suggestion.name }</h3>
+        </div>
+      )
+    })
   }
 }
 
