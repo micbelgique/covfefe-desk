@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>FamiDesk</title>
+  <title>FamiDesk</title>
 
-    <%= csrf_meta_tags %>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
 <body>
-    <div id="app" class="wrapper">
-        <%= render 'layouts/parts/navbar' %>
-
-        <div class="content-wrapper">
-            <div class="content">
-                <%= yield %>
-            </div>
-        </div>
+  <div class="flex-center position-ref full-height">
+    <div class="content">
+      <%= yield %>
     </div>
+  </div>
 
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag    'application' %>
-    <%= javascript_pack_tag    'hello_react' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag    'application' %>
 </body>
 </html>

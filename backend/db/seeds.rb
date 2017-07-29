@@ -29,7 +29,7 @@ module SeedHelpers
         type:         SeedHelpers.agent_type(type),
         action_types: SeedHelpers.action_types(action_types),
         # picture:    File.new("#{Rails.root}/../res/agents/#{name.downcase}.jpg")
-        picture:    File.new("#{Rails.root}/../res/agents/annie.jpg")
+        picture:    File.new("misc/pictures/agents/annie.jpg")
       )
     end
 
@@ -39,7 +39,7 @@ module SeedHelpers
         birth_date: SeedHelpers.random_birth_date,
         code:       code,
         address:    address,
-        picture:    File.new("#{Rails.root}/../res/patients/#{name.downcase}.jpg")
+        picture:    File.new("misc/pictures/patients/#{name.downcase}.jpg")
       )
     end
   end
@@ -54,3 +54,17 @@ josiane    = SeedHelpers.create_agent('',                                     "J
 alberte  = SeedHelpers.create_patient('Alberte',  'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
 gilberte = SeedHelpers.create_patient('Gilberte', 'yu', "Rue Royale 42, 7500 Tournai, Belgium")
 
+[alberte, gilberte].each do |patient|
+  datetime = Time.now
+
+  (rand(10) + 2).times do
+    action_type = ActionType.all.sample
+    datetime   -= rand(72).hours
+
+    patient.actions.create!(
+      datetime: datetime,
+      type:     action_type,
+      agent:    action_type.agents.sample
+    )
+  end
+end

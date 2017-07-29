@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :patients, only: [:show]
+    resources :actions,  only: [:create]
+    resources :people,   only: [:index]
   end
 end
