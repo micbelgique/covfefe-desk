@@ -13,3 +13,46 @@
     display: flex;
     justify-content: center;
 }
+
+.search-input {
+    border: 1px solid hsl(0, 0%, 80%);
+    outline: none;
+    padding: 8px;
+    width: 300px;
+}
+
+.agent-page {
+    background: hsl(0, 0%, 100%);
+    border-top: 5px solid hsl(176, 84%, 38%);
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px hsl(60, 4%, 89%);
+    padding: 10px;
+
+    .agent-photo {
+        border-radius: 50%;
+        margin: -60px auto 0;
+        overflow: hidden;
+        text-align: center;
+        height: 100px;
+        width: 100px;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .agent-details {
+        text-align: center;
+
+        .agent-name {
+            font-size: 48px;
+        }
+
+        .agent-type {
+            color: hsl(0, 0%, 46%);
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+    }
+}
