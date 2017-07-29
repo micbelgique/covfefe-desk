@@ -20,3 +20,4 @@ class Main extends React.Component {
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Main />, document.getElementById('main'))
 })
+
