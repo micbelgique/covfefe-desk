@@ -57,7 +57,8 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <img src="/assets/famidesk.png" />
+        <img className="logo"
+             src="/assets/famidesk.png" />
 
         <input type="search"
                placeholder="Rechercher un patient ou un agent"
