@@ -6,17 +6,43 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      page: "search"
+    }
   }
 
   render() {
     return (
       <div>
-        <Search />
-        <Patient />
-        <Agent />
+        { this.renderSearch()  }
+        { this.renderPatient() }
+        { this.renderAgent()   }
       </div>
     )
+  }
+
+  renderSearch() {
+    if(this.state.page = 'search') {
+      return (
+        <Search />
+      )
+    }
+  }
+
+  renderPatient() {
+    if(this.state.page = 'patient') {
+      return (
+        <Patient />
+      )
+    }
+  }
+
+  renderAgent() {
+    if(this.state.page = 'agent') {
+      return (
+        <Agent />
+      )
+    }
   }
 }
 
