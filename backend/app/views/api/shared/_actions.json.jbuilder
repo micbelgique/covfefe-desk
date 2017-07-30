@@ -4,6 +4,7 @@ json.actions resource.actions.order(datetime: :desc) do |action|
 
   json.agent do
     json.name                  action.agent.name
+    json.type                  action.agent.type.name
     json.picture_url           action.agent.picture_url
     json.thumb_picture_url     action.agent.thumb_picture_url
     json.big_thumb_picture_url action.agent.big_thumb_picture_url
@@ -11,7 +12,6 @@ json.actions resource.actions.order(datetime: :desc) do |action|
 
   json.patient do
     json.name                  action.patient.name
-    json.type                  action.patient.type.name
     json.picture_url           action.patient.picture_url
     json.thumb_picture_url     action.patient.thumb_picture_url
     json.big_thumb_picture_url action.patient.big_thumb_picture_url
