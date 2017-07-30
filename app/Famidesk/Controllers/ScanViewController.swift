@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Hero
+import NVActivityIndicatorView
 
 class ScanViewController: UIViewController {
     
@@ -19,9 +20,7 @@ class ScanViewController: UIViewController {
     @IBOutlet weak var cameraCornerImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    
-    
-    
+    var loadingView: NVActivityIndicatorView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +34,12 @@ class ScanViewController: UIViewController {
         //scannerView.stopScanning()
         //showProfile(grannyId: "yo")
         /* *** */
+        
+        let loadingPoint = CGPoint(x: cameraCornerImageView.center.x - 30, y: cameraCornerImageView.center.y - 30)
+        let loadingRect = CGRect(origin: loadingPoint, size: CGSize(width: 60, height: 60))
+        
+        loadingView = NVActivityIndicatorView(frame: loadingRect, type: .ballPulseSync, color: UIColor.darkGray, padding: 0)
+        self.view.addSubview(loadingView!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,8 +53,6 @@ class ScanViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -98,6 +101,7 @@ extension ScanViewController {
     // Network
     
     func loadData(patientId: String, inRect: CGRect?) {
+        loadingView?.startAnimating()
         if let inRect = inRect?.increaseRect(byPercentage: 0.5) {
             self.profileImageView.frame = inRect
         }
@@ -111,6 +115,8 @@ extension ScanViewController {
                     let patient = Patient(json: patientJson)
                     result["patient"] = patient
                     self.profileImageView.sd_setImage(with: patient.picture_url, completed: { (image, error, sdImageCacheType, url) in
+                        
+                        self.loadingView?.stopAnimating()
                         
                         self.profileImageView.alpha = 0
                         UIView.animate(withDuration: 0.8, animations: {

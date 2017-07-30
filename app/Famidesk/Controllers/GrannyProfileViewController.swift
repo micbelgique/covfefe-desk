@@ -18,6 +18,8 @@ class GrannyProfileViewController: UIViewController {
     @IBOutlet weak var identityLabel: UILabel!
     
     @IBOutlet weak var actionsTableView: UITableView!
+    @IBOutlet weak var actionButton: UIButton!
+    
     
     var patient: Patient? {
         didSet {
@@ -43,6 +45,8 @@ class GrannyProfileViewController: UIViewController {
             initTableView()
             updateView()
         }
+        
+        actionButton.layer.cornerRadius = 22
         
         profileImageView.heroID = "testHero"
         isHeroEnabled = true
