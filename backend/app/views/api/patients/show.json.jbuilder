@@ -8,8 +8,11 @@ json.patient do
 end
 
 json.action_types @agent.action_types do |action_type|
-  json.id   action_type.id
-  json.name action_type.name
+  json.id                    action_type.id
+  json.name                  action_type.name
+  json.picture_url           action_type.picture_url
+  json.thumb_picture_url     action_type.thumb_picture_url
+  json.big_thumb_picture_url action_type.big_thumb_picture_url
 end
 
 json.partial! 'api/shared/actions', resource: @patient
