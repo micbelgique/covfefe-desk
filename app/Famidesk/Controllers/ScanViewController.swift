@@ -37,8 +37,8 @@ class ScanViewController: UIViewController {
         self.view.addSubview(loadingView!)
         
         /* To remove */
-        scannerView.stopScanning()
-        showProfile(grannyId: "yo", inRect: CGRect(x: 10, y: 10, width: 100, height: 100))
+        //scannerView.stopScanning()
+        //showProfile(grannyId: "yo", inRect: CGRect(x: 10, y: 10, width: 100, height: 100))
         /* *** */
 
     }
