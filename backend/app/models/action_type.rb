@@ -1,5 +1,7 @@
 class ActionType < ApplicationRecord
 
+  include Picture
+
   has_many :actions
 
   has_many :action_type_agent_links, dependent: :destroy

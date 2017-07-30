@@ -5,7 +5,18 @@ module SeedHelpers
     end
 
     def action_type(name)
-      ActionType.where(name: name).first_or_create!
+      type = ActionType.where(name: name).first_or_create!
+
+      if type.picture.blank?
+        picture_path = "misc/pictures/action_types/#{name.downcase}.png"
+
+        if File.exists?(picture_path)
+          type.picture = File.new(picture_path)
+          type.save!
+        end
+      end
+
+      type
     end
 
     def action_types(names)
