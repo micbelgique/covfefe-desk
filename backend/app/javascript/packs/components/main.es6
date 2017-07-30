@@ -14,6 +14,8 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.reloadFromBackend()
+
+    setInterval(this.reloadFromBackend.bind(this), 1000)
   }
 
   reloadFromBackend() {
@@ -23,7 +25,15 @@ class Main extends React.Component {
 
       let suggestions = patients.concat(agents)
 
-      this.setState({ suggestions: _.sortBy(suggestions, 'name') })
+      this.setState({ suggestions: _.sortBy(suggestions, 'name') }, () => {
+        if(this.state.currentPerson) {
+          this.selectPersonByIdAndType(this.state.currentPerson.id, this.state.currentPerson.personType)
+
+          // this.setState({
+          //   currentPerson: this.state.currentPerson
+          // })
+        }
+      })
     })
   }
 

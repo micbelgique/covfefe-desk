@@ -17,6 +17,16 @@ SummerCamp 2017.
 * Swift 3.0
 * CocoaPod 1.2.0
 
+## Screenshots
+
+### Mobile
+
+![Image](https://github.com/micbelgique/covfefe-desk/blob/master/famidesk-mobile.gif)
+
+### Web (+ backend)
+
+![Image](https://github.com/micbelgique/covfefe-desk/blob/master/famidesk.gif)
+
 ## Usage
 
 ### Development
