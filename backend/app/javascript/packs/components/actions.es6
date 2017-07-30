@@ -35,6 +35,10 @@ class Actions extends React.Component {
               <div className="media-content">
                 <strong>{ action.type }</strong> pour { action.patient.name }
               </div>
+
+              <div className="date" title={ moment(action.datetime).format('lll') }>
+                { moment(action.datetime).fromNow() }
+              </div>
             </div>
           </div>
         </div>

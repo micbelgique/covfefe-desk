@@ -56,8 +56,8 @@ class Main extends React.Component {
   renderSearch() {
     if(this.state.currentPerson == undefined) {
       return (
-        <Search suggestions={this.state.suggestions}
-                selectPerson={this.selectPerson.bind(this)}/>
+        <Search suggestions={ this.state.suggestions }
+                selectPerson={ this.selectPerson.bind(this) }/>
       )
     }
   }
@@ -65,7 +65,7 @@ class Main extends React.Component {
   renderPatient() {
     if(this.state.currentPerson && this.state.currentPerson.personType == 'patient') {
       return (
-        <Patient patient={this.state.currentPerson}
+        <Patient patient={ this.state.currentPerson }
                  selectPerson={ this.selectPerson.bind(this) }
                  selectPersonByIdAndType={ this.selectPersonByIdAndType.bind(this) } />
       )
@@ -75,7 +75,7 @@ class Main extends React.Component {
   renderAgent() {
     if(this.state.currentPerson && this.state.currentPerson.personType == 'agent') {
       return (
-        <Agent agent={this.state.currentPerson}
+        <Agent agent={ this.state.currentPerson }
                selectPerson={ this.selectPerson.bind(this) }
                selectPersonByIdAndType={ this.selectPersonByIdAndType.bind(this) } />
       )
