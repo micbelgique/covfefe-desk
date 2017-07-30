@@ -66,8 +66,7 @@ class Search extends React.Component {
                className="search-input"
                value={ this.state.search }
                onChange={ this.updateSearch.bind(this) }
-               onFocus={ this.open.bind(this) }
-               autoFocus="true" />
+               onFocus={ this.open.bind(this) } />
 
         { this.renderSuggestionsContainer() }
       </div>
