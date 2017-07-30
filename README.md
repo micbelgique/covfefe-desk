@@ -19,7 +19,7 @@ SummerCamp 2017.
 
 ## Screenshots
 
-![Image](https://github.commicbelgique/covfefe-desk/raw/master/famidesk.gif)
+![Image](https://github.com/micbelgique/covfefe-desk/blob/master/famidesk.gif)
 
 ## Usage
 
