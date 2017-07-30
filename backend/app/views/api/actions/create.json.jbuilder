@@ -1,1 +1,1 @@
-json.id @action.id
+json.partial! 'api/shared/action', action: @action
