@@ -14,6 +14,7 @@ class Action: NSObject {
     var name: String?
     var datetime: Date? // "2017-07-29T07:28:23.000Z",
     var type: String?
+    var iconUrl: URL?
     var agent: Agent?
     
     init(json: Any) {
@@ -22,6 +23,7 @@ class Action: NSObject {
             self.name = json["name"] as? String
             self.datetime = Date.stringToDate(stringDate: json["datetime"] as? String, withHour: true)
             self.type = json["type"] as? String
+            self.iconUrl = URL(string: json["thumb_picture_url"] as? String ?? "")
             
             if let agentJson = json["agent"] as? [String: Any] {
                 self.agent = Agent(json: agentJson)

@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="-801" y="52"/>
         </scene>
-        <!--Granny Profile View Controller-->
+        <!--FamiDesk-->
         <scene sceneID="X1Y-xQ-mY4">
             <objects>
-                <viewController id="k0L-Hk-Hvh" customClass="GrannyProfileViewController" customModule="Famidesk" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FamiDesk" id="k0L-Hk-Hvh" customClass="GrannyProfileViewController" customModule="Famidesk" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cBw-O2-wGn"/>
                         <viewControllerLayoutGuide type="bottom" id="QUL-4a-hfB"/>

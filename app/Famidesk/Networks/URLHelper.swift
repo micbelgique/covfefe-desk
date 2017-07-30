@@ -7,9 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class URLHelper {
     static func getUrlForQRCode(qrCodeContent: String) -> URL {
-        return URL(string: "http://famidesk.80limit.com/api/patients/\(qrCodeContent).json?device_id=78A12647-4910-4162-9FC5-10A5EB259A75")!
+        return URL(string: "http://famidesk.80limit.com/api/patients/\(qrCodeContent).json?device_id=\(UIDevice.current.identifierForVendor!.uuidString)")!
+    }
+    
+    static func getUrlToAddAction() -> URL {
+        return URL(string: "http://famidesk.80limit.com/api/actions?device_id=\(UIDevice.current.identifierForVendor!.uuidString)")!
     }
 }

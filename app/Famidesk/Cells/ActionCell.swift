@@ -19,6 +19,8 @@ class ActionCell: UITableViewCell {
     func setup(action: Action) {
         //actionImageView.
         agentImageView.sd_setImage(with: action.agent?.picture_url)
+        actionImageView.sd_setImage(with: action.iconUrl)
+        
         
         dateLabel.text = ""
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
