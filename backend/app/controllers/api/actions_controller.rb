@@ -15,6 +15,8 @@ class Api::ActionsController < Api::BaseController
             type:     action_type,
             datetime: Time.now
           })
+
+          render nothing: true
         else
           render_error('Unknown action type.')
         end
