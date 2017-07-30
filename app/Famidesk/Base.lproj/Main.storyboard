@@ -107,7 +107,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LFJ-vr-thR">
-                                <rect key="frame" x="0.0" y="385.5" width="375" height="281.5"/>
+                                <rect key="frame" x="0.0" y="386" width="375" height="217"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionCell" rowHeight="80" id="Nlc-Rq-2bF" customClass="ActionCell" customModule="Famidesk" customModuleProvider="target">
@@ -198,8 +198,8 @@
                             <constraint firstAttribute="trailing" secondItem="rAL-hn-din" secondAttribute="trailing" constant="10" id="8O0-xK-vbC"/>
                             <constraint firstAttribute="trailing" secondItem="LFJ-vr-thR" secondAttribute="trailing" id="Fch-LE-T2X"/>
                             <constraint firstItem="LFJ-vr-thR" firstAttribute="top" secondItem="rAL-hn-din" secondAttribute="bottom" constant="10" id="GNP-Cg-97l"/>
-                            <constraint firstAttribute="bottom" secondItem="LFJ-vr-thR" secondAttribute="bottom" id="IAI-ez-YO0"/>
                             <constraint firstItem="LFJ-vr-thR" firstAttribute="leading" secondItem="1vC-eg-kQS" secondAttribute="leading" id="WjP-Pp-XuH"/>
+                            <constraint firstItem="4Hd-9l-f4F" firstAttribute="top" secondItem="LFJ-vr-thR" secondAttribute="bottom" constant="10" id="YLM-5e-ZnR"/>
                             <constraint firstItem="rAL-hn-din" firstAttribute="leading" secondItem="1vC-eg-kQS" secondAttribute="leading" constant="10" id="a4w-OO-YGL"/>
                             <constraint firstItem="rAL-hn-din" firstAttribute="top" secondItem="e9l-Bo-tG7" secondAttribute="bottom" constant="10" id="gA2-fh-NxI"/>
                             <constraint firstItem="e9l-Bo-tG7" firstAttribute="leading" secondItem="1vC-eg-kQS" secondAttribute="leading" id="jOG-v2-AVR"/>
@@ -219,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZO-gf-iXB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="52"/>
+            <point key="canvasLocation" x="776.79999999999995" y="51.724137931034484"/>
         </scene>
     </scenes>
     <resources>
