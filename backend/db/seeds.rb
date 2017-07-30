@@ -57,8 +57,8 @@ module SeedHelpers
   end
 end
 
-SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmère',  ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
-SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmère',  ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
+SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmière', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
+SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmière', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
 SeedHelpers.create_agent('',                                     "Jessica",    'Infirmière', ['Visite'])
 SeedHelpers.create_agent('',                                     "Michel",     'Voisin',     ['Visite', 'Courses'])
 SeedHelpers.create_agent('',                                     "Josiane",    'Amie',       ['Visite'])

@@ -1,3 +1,5 @@
+import Actions from './actions.es6'
+
 class Patient extends React.Component {
   constructor(props) {
     super(props)
@@ -10,7 +12,7 @@ class Patient extends React.Component {
       <div>
         <div className="back"
              onClick={ this.props.selectPerson.bind(this, undefined) }>
-            &larr;
+          &larr;
         </div>
         <div className="patient-page">
           <div className="patient-photo">
@@ -20,10 +22,14 @@ class Patient extends React.Component {
             <div className="patient-name">{this.props.patient.name}</div>
             <div className="patient-age">{this.props.patient.age}</div>
           </div>
+
+          <Actions person={ this.props.patient }
+                   actions={ this.props.patient.actions }
+                   selectPersonByIdAndType={ this.props.selectPersonByIdAndType } />
         </div>
       </div>
     )
   }
 }
 
-module.exports = Patient
+export default Patient

@@ -5,14 +5,12 @@ class Search extends React.Component {
     super(props)
 
     this.state = {
-      search:      "",
-      open:        false,
-      suggestions: []
+      search: "",
+      open:   false,
     }
   }
 
   componentDidMount() {
-    this.reloadFromBackend()
     this.logoUrl = $('.logo-path').attr('data-logo-path')
   }
 
@@ -20,21 +18,10 @@ class Search extends React.Component {
     this.close()
   }
 
-  reloadFromBackend() {
-    axios.get('/api/people.json').then((response) => {
-      let patients = humps.camelizeKeys(response.data.patients)
-      let agents   = humps.camelizeKeys(response.data.agents)
-
-      let suggestions = patients.concat(agents)
-
-      this.setState({ suggestions: _.sortBy(suggestions, 'name') })
-    })
-  }
-
   updateSearch(e) {
     this.setState({
       search: e.target.value
-    }, this.dUpdateSuggestions)
+    })
   }
 
   open() {
@@ -50,7 +37,7 @@ class Search extends React.Component {
   }
 
   filteredSuggestions() {
-    return _.filter(this.state.suggestions, (suggestion) => {
+    return _.filter(this.props.suggestions, (suggestion) => {
       return suggestion.name.toLowerCase().indexOf(this.state.search) > -1
     })
   }
@@ -59,6 +46,8 @@ class Search extends React.Component {
     return (
       <div>
         <img className="logo"
+             width="420"
+             height="214"
              src={this.logoUrl} />
 
         <input type="search"
