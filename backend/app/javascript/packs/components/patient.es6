@@ -14,7 +14,7 @@ class Patient extends React.Component {
         </div>
         <div className="patient-page">
           <div className="patient-photo">
-            <img src={this.props.patient.pictureUrl} alt="Photo"/>
+            <img src={this.props.patient.bigThumbPictureUrl} alt="Photo"/>
           </div>
           <div className="patient-details text-center">
             <div className="patient-name">{this.props.patient.name}</div>
