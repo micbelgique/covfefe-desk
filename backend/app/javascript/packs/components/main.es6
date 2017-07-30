@@ -7,11 +7,37 @@ class Main extends React.Component {
     super(props)
 
     this.state = {
+      suggestions:   [],
       currentPerson: undefined
     }
   }
 
+  componentDidMount() {
+    this.reloadFromBackend()
+  }
+
+  reloadFromBackend() {
+    axios.get('/api/people.json').then((response) => {
+      let patients = humps.camelizeKeys(response.data.patients)
+      let agents   = humps.camelizeKeys(response.data.agents)
+
+      let suggestions = patients.concat(agents)
+
+      this.setState({ suggestions: _.sortBy(suggestions, 'name') })
+    })
+  }
+
   selectPerson(person) {
+    this.setState({
+      currentPerson: person
+    })
+  }
+
+  selectPersonByIdAndType(id, type) {
+    let person = _.find(this.state.suggestions, (suggestion) => {
+      return suggestion.id == id && suggestion.personType == type
+    })
+
     this.setState({
       currentPerson: person
     })
@@ -30,7 +56,8 @@ class Main extends React.Component {
   renderSearch() {
     if(this.state.currentPerson == undefined) {
       return (
-        <Search selectPerson={this.selectPerson.bind(this)}/>
+        <Search suggestions={this.state.suggestions}
+                selectPerson={this.selectPerson.bind(this)}/>
       )
     }
   }
@@ -38,7 +65,9 @@ class Main extends React.Component {
   renderPatient() {
     if(this.state.currentPerson && this.state.currentPerson.personType == 'patient') {
       return (
-        <Patient selectPerson={this.selectPerson.bind(this)} patient={this.state.currentPerson} />
+        <Patient patient={this.state.currentPerson}
+                 selectPerson={ this.selectPerson.bind(this) }
+                 selectPersonByIdAndType={ this.selectPersonByIdAndType.bind(this) } />
       )
     }
   }
@@ -46,7 +75,9 @@ class Main extends React.Component {
   renderAgent() {
     if(this.state.currentPerson && this.state.currentPerson.personType == 'agent') {
       return (
-        <Agent selectPerson={this.selectPerson.bind(this)} agent={this.state.currentPerson} />
+        <Agent agent={this.state.currentPerson}
+               selectPerson={ this.selectPerson.bind(this) }
+               selectPersonByIdAndType={ this.selectPersonByIdAndType.bind(this) } />
       )
     }
   }

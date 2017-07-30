@@ -18,14 +18,13 @@
 .content {
     position: relative;
     width: 500px;
+    margin-top: 40px;
 }
 
 .logo {
-    position: absolute;
     width: 420px;
-    margin-left: -210px;
-    left: 50%;
-    top: -280px;
+    margin: 60px auto;
+    display: block;
 }
 
 .svg-icon {
@@ -45,8 +44,8 @@
     line-height: 40px;
     text-align: center;
     position: absolute;
-    left: 0;
-    top: -60px;
+    left: -60px;
+    top: 15px;
     height: 40px;
     width: 40px;
     transition: color .6s;
