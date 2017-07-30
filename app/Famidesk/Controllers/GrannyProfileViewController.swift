@@ -188,6 +188,27 @@ extension GrannyProfileViewController {
         navigationController?.popViewController(animated: true)
         navigationController?.present(alert, animated:true, completion:nil)
     }
+    
+    func addAction(action: Action) {
+        guard let actionId = action.id, let patientId = patientId else {
+            return
+        }
+        
+        
+        let parameters: Parameters = [
+            "action_type_id": actionId,
+            "patient_id": patientId
+        ]
+        
+        Alamofire.request(URLHelper.getUrlToAddAction(), method: .post, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON {
+            (response: DataResponse<Any>) in
+            
+            let patientResponse = response.map { json in
+                self.actions?.insert(Action(json: json), at: 0)
+                self.updateView()
+            }
+        }
+    }
 }
 
 // Action Sheet
@@ -202,6 +223,8 @@ extension GrannyProfileViewController {
             alert.addAction(UIAlertAction(title: action.name, style: UIAlertActionStyle.default, handler: {
                 alert in
                 NSLog("Action -> \(action.name)")
+                
+                self.addAction(action: action)
             }))
         }
         

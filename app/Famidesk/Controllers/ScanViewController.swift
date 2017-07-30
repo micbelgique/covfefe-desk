@@ -30,16 +30,17 @@ class ScanViewController: UIViewController {
         isHeroEnabled = true
         navigationController?.isHeroEnabled = true
         
-        /* To remove */
-        //scannerView.stopScanning()
-        //showProfile(grannyId: "yo")
-        /* *** */
-        
         let loadingPoint = CGPoint(x: cameraCornerImageView.center.x - 30, y: cameraCornerImageView.center.y - 30)
         let loadingRect = CGRect(origin: loadingPoint, size: CGSize(width: 60, height: 60))
         
         loadingView = NVActivityIndicatorView(frame: loadingRect, type: .ballPulseSync, color: UIColor.darkGray, padding: 0)
         self.view.addSubview(loadingView!)
+        
+        /* To remove */
+        scannerView.stopScanning()
+        showProfile(grannyId: "yo", inRect: CGRect(x: 10, y: 10, width: 100, height: 100))
+        /* *** */
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
