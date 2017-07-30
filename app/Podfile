@@ -10,4 +10,5 @@ target 'Famidesk' do
   pod 'SDWebImage', '~> 4.0'
   pod 'Hero'
   pod 'NVActivityIndicatorView'
+  pod 'LTMorphingLabel'
 end

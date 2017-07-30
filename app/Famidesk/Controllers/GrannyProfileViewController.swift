@@ -11,11 +11,12 @@ import UIKit
 import Alamofire
 import SDWebImage
 import Hero
+import LTMorphingLabel
 
 class GrannyProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var identityLabel: UILabel!
+    @IBOutlet weak var identityLabel: LTMorphingLabel!
     
     @IBOutlet weak var actionsTableView: UITableView!
     @IBOutlet weak var actionButton: UIButton!
@@ -46,6 +47,7 @@ class GrannyProfileViewController: UIViewController {
             updateView()
         }
         
+        identityLabel.morphingEffect = .burn
         actionButton.layer.cornerRadius = 22
         
         profileImageView.heroID = "testHero"
@@ -60,7 +62,9 @@ class GrannyProfileViewController: UIViewController {
         profileImageView?.sd_setImage(with: patient.picture_url)
         
         if let name = patient.name, let birthDate = patient.birth_date, let age = patient.age {
-            identityLabel?.text = "\(name) - \(birthDate.toPrettyString()) (\(age) ans)"
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+                self.identityLabel?.text = "\(name) - \(birthDate.toPrettyString()) (\(age) ans)"
+            })
         }
         
         initTableView()
@@ -86,6 +90,25 @@ extension GrannyProfileViewController: UITableViewDataSource {
         var cell: ActionCell
         cell = tableView.dequeueReusableCell(withIdentifier: "actionCell") as! ActionCell
         cell.setup(action: actions![indexPath.row])
+        
+        
+        switch indexPath.row {
+        case 0:
+            cell.dateLabel.morphingEffect = .fall
+        case 1:
+            cell.dateLabel.morphingEffect = .pixelate
+        case 2:
+            cell.dateLabel.morphingEffect = .sparkle
+        case 3:
+            cell.dateLabel.morphingEffect = .anvil
+        case 4:
+            cell.dateLabel.morphingEffect = .evaporate
+        case 5:
+            cell.dateLabel.morphingEffect = .scale
+        default:
+            cell.dateLabel.morphingEffect = .burn
+        }
+        
         return cell
     }
     

@@ -8,16 +8,21 @@
 
 import Foundation
 import UIKit
+import LTMorphingLabel
 
 class ActionCell: UITableViewCell {
     
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var agentImageView: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateLabel: LTMorphingLabel!
     
     func setup(action: Action) {
         //actionImageView.
         agentImageView.sd_setImage(with: action.agent?.picture_url)
-        dateLabel.text = action.datetime?.toPrettyString()
+        
+        dateLabel.text = ""
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+            self.dateLabel.text = action.datetime?.toPrettyString()
+        })
     }
 }
