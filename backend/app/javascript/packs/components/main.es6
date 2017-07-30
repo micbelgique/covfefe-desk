@@ -15,7 +15,7 @@ class Main extends React.Component {
   componentDidMount() {
     this.reloadFromBackend()
 
-    setInterval(this.reloadFromBackend.bind(this), 3000)
+    setInterval(this.reloadFromBackend.bind(this), 1000)
   }
 
   reloadFromBackend() {
