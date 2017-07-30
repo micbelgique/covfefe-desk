@@ -10,13 +10,11 @@ class Api::ActionsController < Api::BaseController
         action_type = agent.action_types.find(params[:action_type_id])
 
         if action_type
-          patient.actions.create!({
+          @action = patient.actions.create!({
             agent:    agent,
             type:     action_type,
             datetime: Time.now
           })
-
-          render nothing: true
         else
           render_error('Unknown action type.')
         end
