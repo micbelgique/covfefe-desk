@@ -33,6 +33,10 @@
                                     <constraint firstAttribute="height" constant="200" id="hrx-7v-egM"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xfS-kJ-hEJ">
+                                <rect key="frame" x="96" y="258" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -49,6 +53,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="cameraCornerImageView" destination="uyE-L5-ZHc" id="5Ai-Ed-OhU"/>
+                        <outlet property="profileImageView" destination="xfS-kJ-hEJ" id="Pci-em-x1V"/>
                         <outlet property="scannerView" destination="MRG-Vf-iPN" id="rFh-5R-v5d"/>
                         <segue destination="k0L-Hk-Hvh" kind="show" identifier="showGrannyProfile" id="Lmm-aw-e8N"/>
                     </connections>

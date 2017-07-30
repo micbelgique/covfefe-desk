@@ -7,17 +7,29 @@
 //
 
 import UIKit
+import Alamofire
+import Hero
 
 class ScanViewController: UIViewController {
+    
+    var data: [String: Any]?
     
     // Views
     @IBOutlet weak var scannerView: ScannerView!
     @IBOutlet weak var cameraCornerImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scannerView.qrCodeFoundDelegate = self
+        
+        profileImageView.heroID = "testHero"
+        isHeroEnabled = true
+        navigationController?.isHeroEnabled = true
         
         /* To remove */
         //scannerView.stopScanning()
@@ -29,12 +41,15 @@ class ScanViewController: UIViewController {
         super.viewWillAppear(animated)
         scannerView.startScanning()
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        profileImageView.image = nil
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,8 +58,19 @@ class ScanViewController: UIViewController {
     
     // Passing the granny id to the next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let yourVC = segue.destination as? GrannyProfileViewController, let grannyId = sender as? String {
+        if let yourVC = segue.destination as? GrannyProfileViewController, let grannyId = sender as? String, let data = data {
             yourVC.patientId = grannyId
+            
+            // Get patient
+            yourVC.patient = data["patient"] as? Patient
+            print("Patient: { username: \(yourVC.patient?.name), name: \(yourVC.patient?.age) }")
+            
+            // Get Actions
+            yourVC.actions = data["actions"] as? [Action]
+            print("actions: \(yourVC.actions?.count)")
+                 
+            // Get ActionType
+            yourVC.actionsType = data["actionsType"] as? [Action]
         }
     }
     
@@ -52,20 +78,93 @@ class ScanViewController: UIViewController {
         return true
     }
     
-    func showProfile(grannyId: String) {
+    func showProfile(grannyId: String, inRect: CGRect?) {
         scannerView.stopScanning()
-        performSegue(withIdentifier:"showGrannyProfile", sender: grannyId)
+        loadData(patientId: grannyId, inRect: inRect)
     }
 }
 
 extension ScanViewController: QRCodeFoundDelegate {
-    func grannyScanned(grannyId: String) {
-        showProfile(grannyId: grannyId)
+    func grannyScanned(grannyId: String, inRect: CGRect?) {
+        showProfile(grannyId: grannyId, inRect: inRect)
     }
 }
 
 protocol QRCodeFoundDelegate: class {
-    func grannyScanned(grannyId: String)
+    func grannyScanned(grannyId: String, inRect: CGRect?)
+}
+
+extension ScanViewController {
+    // Network
+    
+    func loadData(patientId: String, inRect: CGRect?) {
+        if let inRect = inRect?.increaseRect(byPercentage: 0.5) {
+            self.profileImageView.frame = inRect
+        }
+        Alamofire.request(URLHelper.getUrlForQRCode(qrCodeContent: patientId)).responseJSON {
+            (response: DataResponse<Any>) in
+            
+            let patientResponse = response.map { json -> [String: Any]? in
+                var result: [String: Any] = [:]
+                
+                if let patientJson = (json as? [String: Any])?["patient"] {
+                    let patient = Patient(json: patientJson)
+                    result["patient"] = patient
+                    self.profileImageView.sd_setImage(with: patient.picture_url, completed: { (image, error, sdImageCacheType, url) in
+                        
+                        self.profileImageView.alpha = 0
+                        UIView.animate(withDuration: 0.8, animations: {
+                            self.profileImageView.alpha = 1
+                        })
+                        
+                        
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+                            self.performSegue(withIdentifier:"showGrannyProfile", sender: patientId)
+                        })
+                    })
+                }
+                
+                if let actionsJson = (json as? [String: Any])?["actions"] as? [[String: Any]] {
+                    var actions: [Action] = []
+                    for actionJson in actionsJson {
+                        actions.append(Action(json: actionJson))
+                    }
+                    
+                    result["actions"] = actions
+                }
+                
+                if let actionsTypeJson = (json as? [String: Any])?["action_types"] as? [[String: Any]] {
+                    var actionsType: [Action] = []
+                    for actionTypeJson in actionsTypeJson {
+                        actionsType.append(Action(json: actionTypeJson))
+                    }
+                    
+                    result["actionsType"] = actionsType
+                }
+                
+                return result
+            }
+            
+            //Process patientResponse, of type DataResponse<Patient>:
+            if let data = patientResponse.value {
+                self.data = data
+                
+                if data?["patient"] as? Patient == nil {
+                    self.patientNotFound()
+                }
+            }
+        }
+    }
+    
+    func patientNotFound() {
+        let alert = UIAlertController(title: nil, message: "Erreur, le patient n'a pas été identifié", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        
+        //navigationController?.popViewController(animated: true)
+        navigationController?.present(alert, animated:true, completion:nil)
+    }
 }
 
 

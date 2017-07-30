@@ -83,10 +83,12 @@ class ScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
     func stopScanning() {
         captureSession?.stopRunning()
         qrCodeFrameView?.frame = CGRect.zero
+        videoPreviewLayer?.session.stopRunning()
     }
     
     func startScanning() {
         captureSession?.startRunning()
+        videoPreviewLayer?.session.startRunning()
     }
     
     
@@ -111,7 +113,7 @@ class ScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                qrCodeFoundDelegate?.grannyScanned(grannyId: metadataObj.stringValue)
+                qrCodeFoundDelegate?.grannyScanned(grannyId: metadataObj.stringValue, inRect: qrCodeFrameView?.frame)
             }
         }
     }

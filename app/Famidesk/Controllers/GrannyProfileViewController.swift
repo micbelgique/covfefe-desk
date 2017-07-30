@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import SDWebImage
+import Hero
 
 class GrannyProfileViewController: UIViewController {
     
@@ -40,7 +41,11 @@ class GrannyProfileViewController: UIViewController {
         super.viewDidLoad()
         if patient != nil {
             initTableView()
+            updateView()
         }
+        
+        profileImageView.heroID = "testHero"
+        isHeroEnabled = true
     }
     
     func updateView() {
@@ -48,14 +53,14 @@ class GrannyProfileViewController: UIViewController {
             return
         }
         
-        profileImageView.sd_setImage(with: patient.picture_url)
+        profileImageView?.sd_setImage(with: patient.picture_url)
         
         if let name = patient.name, let birthDate = patient.birth_date, let age = patient.age {
-            identityLabel.text = "\(name) - \(birthDate.toPrettyString()) (\(age) ans)"
+            identityLabel?.text = "\(name) - \(birthDate.toPrettyString()) (\(age) ans)"
         }
         
         initTableView()
-        actionsTableView.reloadData()
+        actionsTableView?.reloadData()
     }
     
     func initTableView() {
