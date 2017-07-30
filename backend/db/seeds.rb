@@ -44,11 +44,11 @@ module SeedHelpers
   end
 end
 
-SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmier', ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
-SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmier', ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
-SeedHelpers.create_agent('',                                     "Alberto",    'Voisin',    ['Visite'])
-SeedHelpers.create_agent('',                                     "Michel",     'Voisin',    ['Visite', 'Courses'])
-SeedHelpers.create_agent('',                                     "Josiane",    'Ami',       ['Visite'])
+SeedHelpers.create_agent('78A12647-4910-4162-9FC5-10A5EB259A75', "Annie",      'Infirmère',  ['Toilette', 'Lavage des pieds',          'Coupe des ongles'])
+SeedHelpers.create_agent('',                                     "Jacqueline", 'Infirmère',  ['Toilette', 'Evacuation des excréments', 'Changement de litterie'])
+SeedHelpers.create_agent('',                                     "Jessica",    'Infirmière', ['Visite'])
+SeedHelpers.create_agent('',                                     "Michel",     'Voisin',     ['Visite', 'Courses'])
+SeedHelpers.create_agent('',                                     "Josiane",    'Amie',       ['Visite'])
 
 SeedHelpers.create_patient('Alberte',   'yo', "Rue de Nimy 27, 7000 Mons, Belgium")
 SeedHelpers.create_patient('Gilberte',  'gi', "Rue Royale 42, 7500 Tournai, Belgium")

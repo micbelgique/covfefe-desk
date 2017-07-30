@@ -5,6 +5,8 @@ json.agents @agents do |agent|
   json.type              agent.type.name
   json.picture_url       agent.picture_url
   json.thumb_picture_url agent.thumb_picture_url
+
+  json.partial! 'api/shared/actions', resource: agent
 end
 
 json.patients @patients do |patient|
@@ -17,4 +19,6 @@ json.patients @patients do |patient|
   json.thumb_picture_url patient.thumb_picture_url
   json.latitude          patient.latitude
   json.longitude         patient.longitude
+
+  json.partial! 'api/shared/actions', resource: patient
 end
