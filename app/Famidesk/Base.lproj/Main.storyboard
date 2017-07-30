@@ -110,21 +110,21 @@
                                 <rect key="frame" x="0.0" y="385.5" width="375" height="281.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionCell" rowHeight="60" id="Nlc-Rq-2bF" customClass="ActionCell" customModule="Famidesk" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionCell" rowHeight="80" id="Nlc-Rq-2bF" customClass="ActionCell" customModule="Famidesk" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nlc-Rq-2bF" id="TKn-Vx-SeH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shower" translatesAutoresizingMaskIntoConstraints="NO" id="iXi-fk-3Bp">
-                                                    <rect key="frame" x="10" y="2" width="55.5" height="55.5"/>
+                                                    <rect key="frame" x="10" y="2" width="75.5" height="75.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="iXi-fk-3Bp" secondAttribute="height" multiplier="1:1" id="QUr-7D-vqf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="annie" translatesAutoresizingMaskIntoConstraints="NO" id="wdI-Y5-Eeq">
-                                                    <rect key="frame" x="65.5" y="2" width="55.5" height="55.5"/>
+                                                    <rect key="frame" x="85.5" y="2" width="75.5" height="75.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="wdI-Y5-Eeq" secondAttribute="height" multiplier="1:1" id="6Gw-Hw-oVL"/>
                                                     </constraints>
@@ -135,21 +135,30 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uN0-ux-yVr" customClass="LTMorphingLabel" customModule="LTMorphingLabel">
+                                                    <rect key="frame" x="291" y="39.5" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="uN0-ux-yVr" firstAttribute="centerY" secondItem="TKn-Vx-SeH" secondAttribute="centerY" constant="10" id="4O0-hl-NVl"/>
                                                 <constraint firstAttribute="bottom" secondItem="wdI-Y5-Eeq" secondAttribute="bottom" constant="2" id="6Qz-bD-AGV"/>
                                                 <constraint firstAttribute="bottom" secondItem="iXi-fk-3Bp" secondAttribute="bottom" constant="2" id="9oc-xK-ROt"/>
                                                 <constraint firstItem="wdI-Y5-Eeq" firstAttribute="leading" secondItem="iXi-fk-3Bp" secondAttribute="trailing" id="AvB-En-dpL"/>
+                                                <constraint firstItem="uN0-ux-yVr" firstAttribute="centerX" secondItem="ZqE-NK-mal" secondAttribute="centerX" id="YXR-W0-a1g"/>
                                                 <constraint firstItem="wdI-Y5-Eeq" firstAttribute="top" secondItem="TKn-Vx-SeH" secondAttribute="top" constant="2" id="bNN-KA-aXz"/>
                                                 <constraint firstItem="iXi-fk-3Bp" firstAttribute="top" secondItem="TKn-Vx-SeH" secondAttribute="top" constant="2" id="ddy-ZY-hEe"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZqE-NK-mal" secondAttribute="trailing" constant="10" id="f7s-Df-Fdd"/>
                                                 <constraint firstItem="iXi-fk-3Bp" firstAttribute="leading" secondItem="TKn-Vx-SeH" secondAttribute="leading" constant="10" id="pSz-oS-8qu"/>
-                                                <constraint firstItem="ZqE-NK-mal" firstAttribute="centerY" secondItem="TKn-Vx-SeH" secondAttribute="centerY" id="pdK-ct-9Tj"/>
+                                                <constraint firstItem="ZqE-NK-mal" firstAttribute="centerY" secondItem="TKn-Vx-SeH" secondAttribute="centerY" constant="-10" id="pdK-ct-9Tj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="actionImageView" destination="iXi-fk-3Bp" id="5Fc-Xp-3ZB"/>
                                             <outlet property="agentImageView" destination="wdI-Y5-Eeq" id="iJU-dd-9Qn"/>
+                                            <outlet property="agentLabel" destination="uN0-ux-yVr" id="LYs-7r-MsR"/>
                                             <outlet property="dateLabel" destination="ZqE-NK-mal" id="qLh-IV-U8j"/>
                                         </connections>
                                     </tableViewCell>

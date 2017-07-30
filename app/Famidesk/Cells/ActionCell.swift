@@ -15,6 +15,7 @@ class ActionCell: UITableViewCell {
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var agentImageView: UIImageView!
     @IBOutlet weak var dateLabel: LTMorphingLabel!
+    @IBOutlet weak var agentLabel: LTMorphingLabel!
     
     func setup(action: Action) {
         //actionImageView.
@@ -22,9 +23,13 @@ class ActionCell: UITableViewCell {
         actionImageView.sd_setImage(with: action.iconUrl)
         
         
+        
         dateLabel.text = ""
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+        agentLabel.text = ""
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(300), execute: {
             self.dateLabel.text = action.datetime?.toPrettyString()
+            
+            self.agentLabel.text = action.agent?.name
         })
     }
 }
