@@ -24,20 +24,23 @@ class Actions extends React.Component {
              onClick={ this.props.selectPersonByIdAndType.bind(this, target.id, type) }>
           <div className="media">
             <div className="media-left">
-              <img src={ target.thumbPictureUrl } />
+              <img src={ target.thumbPictureUrl } height="64" width="64" className="img-rounded" />
             </div>
 
             <div className="media-body">
-              <h4 className="media-heading">
-                { action.agent.name } <em>({ action.agent.type })</em>
-              </h4>
-
-              <div className="media-content">
-                <strong>{ action.type }</strong> pour { action.patient.name }
-              </div>
 
               <div className="date" title={ moment(action.datetime).format('lll') }>
                 { moment(action.datetime).fromNow() }
+              </div>
+
+              <div>
+                <h4 className="media-heading">
+                  { action.agent.name } <em>({ action.agent.type })</em>
+                </h4>
+
+                <div className="media-content">
+                  <span>{ action.type }</span> pour { action.patient.name }
+                </div>
               </div>
             </div>
           </div>

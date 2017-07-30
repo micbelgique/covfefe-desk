@@ -4,6 +4,8 @@
 // Bootstrap
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import "animate";
+
 .full-height {
     min-height: 100vh;
     height: 100vh;
@@ -15,10 +17,13 @@
     justify-content: center;
 }
 
+.level { display: flex; align-items: center; }
+.flex { flex: 1; }
+
 .content {
     position: relative;
     width: 500px;
-    margin-top: 40px;
+    margin: 40px 0;
 }
 
 .logo {
@@ -62,6 +67,35 @@
     outline: none;
     padding: 15px;
     width: 100%;
+}
+
+.actions {
+    .action {
+        border-top: 1px solid hsl(0, 0%, 80%);
+        cursor: pointer;
+        padding: 15px;
+        position: relative;
+
+        &:hover {
+            background-color: hsl(0, 0%, 95%);
+        }
+
+        .date {
+            color: hsl(0, 0%, 62%);
+            float: right;
+        }
+
+        .media-heading {
+            color: #363636;
+            font-size: 15px;
+            padding-top: 7px;
+        }
+
+        .media-content {
+            font-size: 17px;
+            color: #636b6f;
+        }
+    }
 }
 
 .suggestions {

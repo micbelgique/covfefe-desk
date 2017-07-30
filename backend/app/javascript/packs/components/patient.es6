@@ -9,10 +9,10 @@ class Patient extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="animated bounceInRight">
         <div className="back"
              onClick={ this.props.selectPerson.bind(this, undefined) }>
-          &larr;
+          &times;
         </div>
         <div className="patient-page">
           <div className="patient-photo">
