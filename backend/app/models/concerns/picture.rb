@@ -12,6 +12,10 @@ module Picture
     def thumb_picture_url
       "http://#{APP_HOSTNAME}#{picture.url(:thumb)}"
     end
+
+    def big_thumb_picture_url
+      "http://#{APP_HOSTNAME}#{picture.url(:big_thumb)}"
+    end
   end
 
 end
