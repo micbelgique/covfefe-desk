@@ -8,11 +8,13 @@ module SeedHelpers
       type = ActionType.where(name: name).first_or_create!
 
       if type.picture.blank?
-        picture_path = "misc/pictures/action_types/#{name.downcase}.png"
+        picture_path = "misc/pictures/action_types/#{name}.png"
 
         if File.exists?(picture_path)
           type.picture = File.new(picture_path)
           type.save!
+        else
+          puts "pas trouvé #{picture_path}"
         end
       end
 

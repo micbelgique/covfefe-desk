@@ -4,7 +4,7 @@ class Api::ActionsController < Api::BaseController
     @agent = Agent.find_by_device_id(params[:device_id])
 
     if @agent
-      @patient = Patient.find_by_code(params[:id])
+      @patient = Patient.find_by_code(params[:patient_id])
 
       if @patient
         @action_type = @agent.action_types.find(params[:action_type_id])
