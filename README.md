@@ -19,6 +19,12 @@ SummerCamp 2017.
 
 ## Screenshots
 
+### Mobile
+
+![Image](https://github.com/micbelgique/covfefe-desk/blob/master/famidesk-mobile.gif)
+
+### Web (+ backend)
+
 ![Image](https://github.com/micbelgique/covfefe-desk/blob/master/famidesk.gif)
 
 ## Usage
