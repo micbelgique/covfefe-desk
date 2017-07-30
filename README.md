@@ -21,6 +21,8 @@ SummerCamp 2017.
 
 ### Development
 
+`cd backend`
+
 Start the server:
 
  * `bin/webpack-dev-server` (for assets)
